@@ -1,2 +1,2 @@
 # Plintora
-Um aplicativo de anotação que contém uma tela de login, e todas as anotações ira ficar salvo em um banco de dados, uma aplicação bem simples e util
+## Um aplicativo de anotação simples, nesse aplicativo contém uma tela de login, e ao usuario criar uma nova anotação ira salvar em um banco de dados de mongoDB.
