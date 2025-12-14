@@ -1,8 +1,8 @@
 package services;
-import dominio.menu;
-import dominio.panel;
-import dominio.text;
-import dominio.textField;
+import dominio.Config.menu;
+import dominio.Config.panel;
+import dominio.Config.text;
+import dominio.Config.textField;
 
 public class components{
 
