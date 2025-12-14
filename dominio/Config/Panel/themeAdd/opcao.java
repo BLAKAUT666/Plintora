@@ -1,4 +1,6 @@
 package dominio.Config.Panel.themeAdd;
+import java.awt.Font;
+
 import javax.swing.JCheckBox;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPanel;
@@ -14,7 +16,13 @@ public class opcao extends JPanel{
         // temas
         theme tema = new theme();
         JCheckBoxMenuItem menuItem = new JCheckBoxMenuItem("menu");
+        Font fontMenuItem = new Font("Fira Code", 2, 20);
 
+
+        // configurações do dark e white
+        dark.setFont(fontMenuItem);
+        white.setFont(fontMenuItem);
+        // adiciona os itens ao menuItem
         menuItem.add(dark);
         menuItem.add(white);
         menuItem.setVisible(true);

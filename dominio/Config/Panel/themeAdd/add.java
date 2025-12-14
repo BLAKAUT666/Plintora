@@ -5,6 +5,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
+import dominio.Config.window.menu;
+
 public class add extends JButton{
     private Color colorButton = new Color(255, 91, 20);
     private Font fontButton = new Font("JetBrains Mono", 0, 20);
@@ -24,6 +26,13 @@ public class add extends JButton{
             @Override
             public void mouseClicked(MouseEvent event){
                 opcao op = new opcao();
+
+                op.setVisible(true);
+
+                menu menu = new menu();
+                // menu se abre ao clicar
+                menu.add(op);
+
             }
         });
     }
