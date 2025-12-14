@@ -1,4 +1,4 @@
-package dominio.Config;
+package dominio.Login;
 
 public enum login {
     LOGIN(1),

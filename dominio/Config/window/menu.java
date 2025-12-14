@@ -1,4 +1,4 @@
-package dominio.Config;
+package dominio.Config.window;
 import javax.swing.JFrame;
 
 public class menu extends JFrame{

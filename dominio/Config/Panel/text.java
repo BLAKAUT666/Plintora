@@ -1,11 +1,11 @@
-package dominio.Config;
+package dominio.Config.Panel;
 import javax.swing.*;
 import java.awt.Font;
 import java.awt.Color;
 
 public class text extends JLabel{
 
-   public text(){
+	public text(){
 		// fonte
 		Font font = new Font("Inter", 0, 40);
 		// cor
@@ -14,5 +14,5 @@ public class text extends JLabel{
 		setForeground(color);
 		setFont(font);
 		setText("Plintora");
-   }
+	}
 }
