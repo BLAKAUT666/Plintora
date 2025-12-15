@@ -1,4 +1,5 @@
 package services;
+import dominio.Config.Panel.loginButton;
 import dominio.Config.Panel.panel;
 import dominio.Config.Panel.text;
 import dominio.Config.Panel.textField;
@@ -6,26 +7,23 @@ import dominio.Config.Panel.themeAdd.add;
 import dominio.Config.window.menu;
 
 public class components{
+	// componentes principais
+	private menu mainMenu = new menu();
+	private panel painel = new panel();	
+	private text textMain = new text();
+	private textField inputUserName = new textField();
+	private loginButton loginButtonClick = new loginButton();
 
     public components(){
 		main();
 	}
 
 	private void main(){
-		// add themes
-		add tema = new add();
-		// text Label
-		text l = new text();
-		// input
-		textField i = new textField();
-		// painel
-		panel painel = new panel();
-		painel.add(l);
-		painel.add(i);
-		painel.add(tema);
-
+		// painel principal
+		painel.add(textMain);
+		painel.add(inputUserName);
+		painel.add(loginButtonClick);
 		// menu
-		menu m = new menu();
-		m.add(painel);
+		mainMenu.add(painel);
 	}
 }
