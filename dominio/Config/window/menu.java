@@ -1,4 +1,6 @@
 package dominio.Config.window;
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 public class menu extends JFrame{
@@ -7,7 +9,7 @@ public class menu extends JFrame{
 		// configuração basica
 		setVisible(true);
 		setTitle("Plintora");
-		setSize(400, 600);
+		setSize(new Dimension(430, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
