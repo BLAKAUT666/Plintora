@@ -9,7 +9,7 @@ public class menu extends JFrame{
 		// configuração basica
 		setVisible(true);
 		setTitle("Plintora");
-		setSize(new Dimension(430, 600));
+		setSize(new Dimension(600, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
