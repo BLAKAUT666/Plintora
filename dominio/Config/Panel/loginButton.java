@@ -17,5 +17,4 @@ public class loginButton extends JButton{
 		setText("Entrar");
 		setFont(fontButton);
     }
-
 }

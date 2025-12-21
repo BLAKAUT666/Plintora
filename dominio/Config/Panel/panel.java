@@ -10,6 +10,6 @@ public class panel extends JPanel{
    public panel(){
 	   setBackground(color);
 	   setPreferredSize(new Dimension(400, 400));
-      setVisible(true);
+       setVisible(true);
    }
 }
