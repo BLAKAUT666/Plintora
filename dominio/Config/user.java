@@ -9,19 +9,6 @@ public class user {
         this.password = password;
     }
 
-    public void dados(){
-        if(getNome() == null || getPassword() == null){
-            System.out.println("Campos incorretos, tente novamente!!!");
-            return;
-        }
-
-        System.out.println("==============================");
-        System.out.println("[ Username ] " + getNome());
-        System.out.println("[ Password ] " + getPassword());
-        System.out.println("==============================");
-
-    }
-
     public String getNome(){ return this.nome; }
     public String getPassword(){ return this.password; }
 }

@@ -1,8 +1,9 @@
 package teste;
-import services.components;
+import services.Components.components;
 
 public class testeApp{
    public static void main(String[] args){
+      @SuppressWarnings("unused")
       components c = new components();
    }
 }
