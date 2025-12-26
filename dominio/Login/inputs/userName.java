@@ -17,8 +17,4 @@ public class userName extends JTextField {
         setForeground(textColor);
         setFont(font);
     }
-
-    public String getName() {
-        return getText();
-    }
 }

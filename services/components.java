@@ -3,18 +3,17 @@ package services;
 import dominio.Config.Panel.loginButton;
 import dominio.Config.Panel.panel;
 import dominio.Config.Panel.text;
-import dominio.Config.Panel.themeAdd.add;
 import dominio.Config.user;
 import dominio.Config.window.menu;
-import dominio.Login.Login;
 import dominio.Login.inputs.userName;
 import dominio.Login.inputs.userPassword;
+import services.list.ListUser;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Scanner;
 
 public class components {
-
     // componentes principais
     private menu mainMenu = new menu();
     private panel painel = new panel();
@@ -22,10 +21,11 @@ public class components {
     private userName inputName = new userName();
     private userPassword inputPassword = new userPassword();
     private loginButton buttonLogin = new loginButton();
+    private ListUser list = new ListUser();
 
     public components() {
         main();
-        getIds();
+        clickButton();
     }
 
     private void main() {
@@ -38,16 +38,23 @@ public class components {
         // menu
         mainMenu.add(painel);
     }
+        
+    private void clickButton(){
+        // pegando userName, passWord
+        buttonLogin.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
 
-    // pegando o username,password
-    private void getIds() {
-        buttonLogin.addMouseListener(
-            new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent event) {
-                    System.out.println("Funcionou!!!");
-                }
+                // name
+                String nome = inputName.getText();
+                String password = inputPassword.getText();
+
+                user usuario = new user(nome, password);
+                usuario.dados();
+
+                // adicionando usuarios
+                list.saveUser(usuario);
             }
-        );
+        });
     }
 }

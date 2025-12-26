@@ -1,34 +1,27 @@
 package dominio.Config;
 
 public class user {
+    private String nome;
+    private String password;
 
-    protected String name;
-    protected String password;
-
-    public user(String name, String password) {
-        this.name = name;
+    public user(String nome, String password){
+        this.nome = nome;
         this.password = password;
-
-        dados();
     }
 
-    private void dados() {
-        if (getName() == null || getPassword() == null) {
-            System.out.println("Dados Incorretos");
+    public void dados(){
+        if(getNome() == null || getPassword() == null){
+            System.out.println("Campos incorretos, tente novamente!!!");
             return;
         }
 
-        System.out.println("=========================");
-        System.out.println("==   Dados Corretos    ==");
-        System.out.println("= Username: " + getName() + " =");
-        System.out.println("= Password: " + getPassword() + " =");
+        System.out.println("==============================");
+        System.out.println("[ Username ] " + getNome());
+        System.out.println("[ Password ] " + getPassword());
+        System.out.println("==============================");
+
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
+    public String getNome(){ return this.nome; }
+    public String getPassword(){ return this.password; }
 }
