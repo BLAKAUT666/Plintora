@@ -6,6 +6,10 @@ import dominio.Config.Panel.text.text;
 import dominio.Config.Panel.text.textPanel;
 import dominio.Config.user.user;
 import dominio.Config.window.menu;
+import dominio.Login.UI.Anottion.add.add;
+import dominio.Login.UI.Anottion.add.addPane;
+import dominio.Login.UI.Anottion.exit.exit;
+import dominio.Login.UI.Anottion.exit.exitPanel;
 import dominio.Login.inputs.name.namePanel;
 import dominio.Login.inputs.name.userName;
 import dominio.Login.inputs.password.passPanel;
@@ -35,6 +39,10 @@ public class components {
     private textPanel textPanel = new textPanel();
     private JPanel[] paines = {painel, panelName, panelPassword, btnPanel};
     private JTextField[] inputs = {inputName, inputPassword};
+    private add add = new add();
+    private addPane panelAdd = new addPane();
+    private exit exit = new exit();
+    private exitPanel exitPanel = new exitPanel();
 
     public components() {
         main();
@@ -78,7 +86,17 @@ public class components {
 
                 // remove os componentes do menu de Login
                 login.UI(textMain, paines, buttonLogin, inputs);
+
+                newUI();
             }
         });
+    }
+
+    private void newUI(){
+        panelAdd.add(add);
+        exitPanel.add(exit);
+
+        mainMenu.add(panelAdd);
+        mainMenu.add(exitPanel);
     }
 }

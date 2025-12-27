@@ -17,7 +17,7 @@ public class loginOk {
 
         for(user User: users){
             if(nome == User.getNome() && password == User.getPassword()){
-                System.out.println("Funcionou");
+                System.out.println("Login bem Sucedido");
                 return true;
             }
         }
