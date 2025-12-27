@@ -1,4 +1,4 @@
-package dominio.Config.Panel;
+package dominio.Config.Panel.panel;
 import javax.swing.*;
 import java.awt.*;
 

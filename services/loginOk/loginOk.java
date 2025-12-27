@@ -1,4 +1,4 @@
-package services;
+package services.loginOk;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import dominio.Config.user;
+import dominio.Config.user.user;
 
 public class loginOk {
 

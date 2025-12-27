@@ -1,17 +1,18 @@
 package services.Components;
-import dominio.Config.Panel.panel;
 import dominio.Config.Panel.buttonLogin.buttonPanel;
 import dominio.Config.Panel.buttonLogin.loginButton;
+import dominio.Config.Panel.panel.panel;
 import dominio.Config.Panel.text.text;
 import dominio.Config.Panel.text.textPanel;
-import dominio.Config.user;
+import dominio.Config.user.user;
 import dominio.Config.window.menu;
 import dominio.Login.inputs.name.namePanel;
 import dominio.Login.inputs.name.userName;
 import dominio.Login.inputs.password.passPanel;
 import dominio.Login.inputs.password.userPassword;
-import services.loginOk;
 import services.list.ListUser;
+import services.loginOk.loginOk;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 

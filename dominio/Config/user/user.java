@@ -1,4 +1,4 @@
-package dominio.Config;
+package dominio.Config.user;
 
 public class user {
     private String nome;

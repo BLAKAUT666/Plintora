@@ -3,7 +3,7 @@ package services.list;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import dominio.Config.user;
+import dominio.Config.user.user;
 
 public class ListUser {
     public void saveUser(user usuario){
