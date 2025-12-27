@@ -15,6 +15,9 @@ import services.list.ListUser;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 public class components {
     // componentes principais
     private menu mainMenu = new menu();
@@ -29,12 +32,15 @@ public class components {
     private namePanel panelName = new namePanel();
     private buttonPanel btnPanel = new buttonPanel();
     private textPanel textPanel = new textPanel();
+    private JPanel[] paines = {painel, panelName, panelPassword, btnPanel};
+    private JTextField[] inputs = {inputName, inputPassword};
 
     public components() {
         main();
         clickButton();
     }
 
+    // menu principal
     private void main() {
         textPanel.add(textMain);
         panelName.add(inputName);
@@ -49,7 +55,8 @@ public class components {
         // menu
         mainMenu.add(painel);
     }
-        
+    
+    // botão de Login
     private void clickButton(){
         // pegando userName, passWord
         buttonLogin.addMouseListener(new MouseAdapter() {
@@ -67,6 +74,9 @@ public class components {
 
                 // método: Verificar dados
                 login.loginIsTrue(nome, password, usuario);
+
+                // remove os componentes do menu de Login
+                login.UI(textMain, paines, buttonLogin, inputs);
             }
         });
     }
