@@ -6,20 +6,21 @@ import dominio.Config.Panel.text.text;
 import dominio.Config.Panel.text.textPanel;
 import dominio.Config.user.user;
 import dominio.Config.window.menu;
-import dominio.Login.UI.Anottion.add.add;
-import dominio.Login.UI.Anottion.add.addPane;
-import dominio.Login.UI.Anottion.exit.exit;
-import dominio.Login.UI.Anottion.exit.exitPanel;
+import dominio.Login.UI.main.Anottion.add.add;
+import dominio.Login.UI.main.Anottion.add.addPane;
+import dominio.Login.UI.main.Anottion.add.input.descricao.*;
+import dominio.Login.UI.main.Anottion.add.input.name.*;
+import dominio.Login.UI.main.Anottion.exit.*;
 import dominio.Login.inputs.name.namePanel;
 import dominio.Login.inputs.name.userName;
 import dominio.Login.inputs.password.passPanel;
 import dominio.Login.inputs.password.userPassword;
 import services.list.ListUser;
 import services.loginOk.loginOk;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -43,6 +44,10 @@ public class components {
     private addPane panelAdd = new addPane();
     private exit exit = new exit();
     private exitPanel exitPanel = new exitPanel();
+    private inputName name = new inputName();
+    private inputDescricao descricao = new inputDescricao();
+    private pane painelName =  new pane();
+    private panelDescricao panelDescricao =  new panelDescricao();
 
     public components() {
         main();
@@ -88,6 +93,7 @@ public class components {
                 login.UI(textMain, paines, buttonLogin, inputs);
 
                 newUI();
+                clickExit();
             }
         });
     }
@@ -98,5 +104,20 @@ public class components {
 
         mainMenu.add(panelAdd);
         mainMenu.add(exitPanel);
+    }
+
+
+    private void clickExit(){
+        exit.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event){
+                mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+        });
+    }
+
+    // adicionar nova anotação
+    private void addNotion(){
+        
     }
 }
