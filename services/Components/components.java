@@ -8,9 +8,14 @@ import dominio.Config.user.user;
 import dominio.Config.window.menu;
 import dominio.Login.UI.main.Anottion.add.add;
 import dominio.Login.UI.main.Anottion.add.addPane;
+import dominio.Login.UI.main.Anottion.add.btnClick.panelSave;
+import dominio.Login.UI.main.Anottion.add.btnClick.saveName;
 import dominio.Login.UI.main.Anottion.add.input.descricao.*;
 import dominio.Login.UI.main.Anottion.add.input.name.*;
 import dominio.Login.UI.main.Anottion.exit.*;
+import dominio.Login.UI.main.Anottion.list.list;
+import dominio.Login.UI.main.Anottion.list.lista;
+import dominio.Login.UI.main.Anottion.list.panelList;
 import dominio.Login.inputs.name.namePanel;
 import dominio.Login.inputs.name.userName;
 import dominio.Login.inputs.password.passPanel;
@@ -48,6 +53,11 @@ public class components {
     private inputDescricao descricao = new inputDescricao();
     private pane painelName =  new pane();
     private panelDescricao panelDescricao =  new panelDescricao();
+    private panelList panelList = new panelList();
+    private lista lista = new lista();
+    private list listar = new list();
+    private saveName saveName = new saveName();
+    private panelSave panelSave = new panelSave();
 
     public components() {
         main();
@@ -94,16 +104,19 @@ public class components {
 
                 newUI();
                 clickExit();
+                addNotion();
             }
         });
     }
 
     private void newUI(){
         panelAdd.add(add);
-        exitPanel.add(exit);
+        //panelList.add(lista);
+        //exitPanel.add(exit);
 
         mainMenu.add(panelAdd);
-        mainMenu.add(exitPanel);
+        //mainMenu.add(panelList);
+        //mainMenu.add(exitPanel);
     }
 
 
@@ -118,6 +131,20 @@ public class components {
 
     // adicionar nova anotação
     private void addNotion(){
-        
+        add.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event){
+                // remove
+                add.setVisible(false);
+                panelAdd.setVisible(false);
+
+                // adiciona a anotação
+                panelName.add(name);
+                panelSave.add(saveName);
+
+                // adiciona a janela
+                mainMenu.add(name);
+            }
+        });
     }
 }

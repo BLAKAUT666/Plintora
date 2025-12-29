@@ -11,6 +11,7 @@ public class pane extends JPanel{
     // configuração basica
     public pane(){
         setVisible(true);
+        setSize(300, 40);
         setPreferredSize(new Dimension(100, 40));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(new JLabel("Nome"));
