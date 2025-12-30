@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 public class panelSave extends JPanel{
     public panelSave(){
         setLayout(new FlowLayout(FlowLayout.CENTER));
-        setPreferredSize(new Dimension(100, 100));
+        setPreferredSize(new Dimension(120, 40));
         setVisible(true);
     }
 }

@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class passPanel extends JPanel{
     public passPanel(){
-        setSize(new Dimension(200, 10));
+        setPreferredSize(new Dimension(200, 10));
         setVisible(true);
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(new JLabel("Senha"));

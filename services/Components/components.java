@@ -22,9 +22,13 @@ import dominio.Login.inputs.password.passPanel;
 import dominio.Login.inputs.password.userPassword;
 import services.list.ListUser;
 import services.loginOk.loginOk;
+import dominio.Login.UI.main.Anottion.add.user.name;
+import dominio.Login.UI.main.Anottion.add.user.descricao;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -51,13 +55,14 @@ public class components {
     private exitPanel exitPanel = new exitPanel();
     private inputName name = new inputName();
     private inputDescricao descricao = new inputDescricao();
-    private pane painelName =  new pane();
+    private pane painelName =  new pane(name);
     private panelDescricao panelDescricao =  new panelDescricao();
     private panelList panelList = new panelList();
     private lista lista = new lista();
     private list listar = new list();
     private saveName saveName = new saveName();
     private panelSave panelSave = new panelSave();
+    private JPanel[] p = {painelName, panelSave};
 
     public components() {
         main();
@@ -111,14 +116,19 @@ public class components {
 
     private void newUI(){
         panelAdd.add(add);
-        //panelList.add(lista);
-        //exitPanel.add(exit);
+        panelList.add(lista);
+        exitPanel.add(exit);
 
-        mainMenu.add(panelAdd);
-        //mainMenu.add(panelList);
-        //mainMenu.add(exitPanel);
+        // add
+        painel.add(panelAdd);
+        painel.add(panelList);
+        painel.add(exitPanel);
+
+        // visible: true
+        painel.setVisible(true);
+
+        mainMenu.add(painel);
     }
-
 
     private void clickExit(){
         exit.addMouseListener(new MouseAdapter() {
@@ -134,17 +144,57 @@ public class components {
         add.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent event){
+                // list of paines
+                JPanel[] l = {panelList, panelAdd, exitPanel};
+
                 // remove
-                add.setVisible(false);
-                panelAdd.setVisible(false);
+                removeAdd(l);
 
                 // adiciona a anotação
-                panelName.add(name);
                 panelSave.add(saveName);
 
-                // adiciona a janela
-                mainMenu.add(name);
+                painel.add(painelName);
+                painel.add(panelSave);
+
+                // deixando visivel o painel principal
+                painel.setVisible(true);
+                anottionFileName();
+
+                // adiciona o nome da anotação
+                mainMenu.add(painel);
             }
         });
     }
+
+    private void removeAdd(JPanel[] l){
+        for(JPanel j: l){
+            j.setVisible(false);
+        }
+    }
+
+    private void anottionFileName(){
+
+        saveName.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event){
+                String fileName = name.getText();
+
+                name anottions = new name(fileName);
+                anottions.file();
+
+                //removendo name, save, panel
+                removeAnottion(name, saveName, p);
+            }
+        });
+    }
+
+    private void removeAnottion(JTextField name, JButton save, JPanel[] p){
+        name.setVisible(false);
+        save.setVisible(false);
+
+        for(JPanel j: p){
+            j.setVisible(false);
+        }
+    }
+
 }

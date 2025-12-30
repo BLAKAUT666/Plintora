@@ -7,8 +7,8 @@ import dominio.Login.UI.main.Anottion.add.user.name;
 public class list {
     List<String> lista = new ArrayList<>();
 
-    private void adicionar(name n, descricao d){
-        lista.add("{ Nome: " + n + " }" + "{ Descrição: " + d + " }");
+    private void adicionar(name name, descricao descricao){
+        lista.add("{ Nome: " + name + " }" + "{ Descrição: " + descricao + " }");
     }
 
     private void listar(){

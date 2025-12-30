@@ -5,15 +5,14 @@ import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class pane extends JPanel{
-
-    // configuração basica
-    public pane(){
+    public pane(JTextField name){
         setVisible(true);
-        setSize(300, 40);
-        setPreferredSize(new Dimension(100, 40));
+        setPreferredSize(new Dimension(400, 40));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(new JLabel("Nome"));
+        add(name);
     }
 }

@@ -12,7 +12,6 @@ public class userName extends JTextField {
 
     public userName() {
         setVisible(true);
-        setSize(100, 40);
         setPreferredSize(new Dimension(300, 38));
         setBackground(background);
         setForeground(textColor);

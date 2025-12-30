@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class namePanel extends JPanel {
     public namePanel(){
         setVisible(true);
-        setPreferredSize(new Dimension(100, 10));
+        setPreferredSize(new Dimension(100, 30));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(new JLabel("Usuario"));
     }
