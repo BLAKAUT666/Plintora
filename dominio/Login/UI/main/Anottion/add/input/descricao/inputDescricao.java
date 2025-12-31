@@ -16,7 +16,6 @@ public class inputDescricao extends JTextArea {
         setBackground(BG);
         setForeground(FC);
         setBorder(null);
-        setPreferredSize(new Dimension(400, 500));
-        setSize(100, 40);
+        setPreferredSize(new Dimension(400, 400));
     }
 }

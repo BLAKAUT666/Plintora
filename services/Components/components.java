@@ -8,12 +8,15 @@ import dominio.Config.user.user;
 import dominio.Config.window.menu;
 import dominio.Login.UI.main.Anottion.add.add;
 import dominio.Login.UI.main.Anottion.add.addPane;
-import dominio.Login.UI.main.Anottion.add.btnClick.panelSave;
-import dominio.Login.UI.main.Anottion.add.btnClick.saveName;
+import dominio.Login.UI.main.Anottion.add.btnClick.descricao.btnDescricao;
+import dominio.Login.UI.main.Anottion.add.btnClick.descricao.btnPanelDescricao;
+import dominio.Login.UI.main.Anottion.add.btnClick.name.panelSave;
+import dominio.Login.UI.main.Anottion.add.btnClick.name.saveName;
 import dominio.Login.UI.main.Anottion.add.input.descricao.*;
 import dominio.Login.UI.main.Anottion.add.input.name.*;
 import dominio.Login.UI.main.Anottion.exit.*;
-import dominio.Login.UI.main.Anottion.list.list;
+import dominio.Login.UI.main.Anottion.list.btnList;
+import dominio.Login.UI.main.Anottion.list.listButton;
 import dominio.Login.UI.main.Anottion.list.lista;
 import dominio.Login.UI.main.Anottion.list.panelList;
 import dominio.Login.inputs.name.namePanel;
@@ -22,7 +25,7 @@ import dominio.Login.inputs.password.passPanel;
 import dominio.Login.inputs.password.userPassword;
 import services.list.ListUser;
 import services.loginOk.loginOk;
-import dominio.Login.UI.main.Anottion.add.user.name;
+import dominio.Login.UI.main.Anottion.add.user.name1;
 import dominio.Login.UI.main.Anottion.add.user.descricao;
 
 import java.awt.event.MouseAdapter;
@@ -56,17 +59,24 @@ public class components {
     private inputName name = new inputName();
     private inputDescricao descricao = new inputDescricao();
     private pane painelName =  new pane(name);
-    private panelDescricao panelDescricao =  new panelDescricao();
+    private panelDescricao panelDescricao =  new panelDescricao(descricao);
     private panelList panelList = new panelList();
     private lista lista = new lista();
-    private list listar = new list();
+    private listButton listar = new listButton();
     private saveName saveName = new saveName();
     private panelSave panelSave = new panelSave();
+    private btnDescricao btnDescricao = new btnDescricao();
+    private btnPanelDescricao btnPanelDescricao = new btnPanelDescricao(btnDescricao);
     private JPanel[] p = {painelName, panelSave};
+    private String listName;
+    private btnList btnList = new btnList();
 
     public components() {
         main();
         clickButton();
+        addNotion();
+        listAnnotions();
+        clickExit();
     }
 
     // menu principal
@@ -108,8 +118,6 @@ public class components {
                 login.UI(textMain, paines, buttonLogin, inputs);
 
                 newUI();
-                clickExit();
-                addNotion();
             }
         });
     }
@@ -178,12 +186,43 @@ public class components {
             @Override
             public void mouseClicked(MouseEvent event){
                 String fileName = name.getText();
-
-                name anottions = new name(fileName);
-                anottions.file();
+                name1 anottions = new name1(fileName);
 
                 //removendo name, save, panel
                 removeAnottion(name, saveName, p);
+
+                // adiciona a descrição da anotação
+                anottionFileDescricao();
+
+                btnDescricao.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent event){
+                        // pega o text da descrição
+                        String d = descricao.getText();
+
+                        // remove o input e botão da descrição
+                        JPanel[] listPanels = {panelDescricao, btnPanelDescricao};
+                        JPanel[] buttonsUI = {panelAdd, panelList, exitPanel};
+
+                        // instancia a decrição do arquivo
+                        descricao desc = new descricao(d);
+
+                        //adiciona o nome e escreve no arquivo da anotação
+                        anottions.file(desc.getDescricao());
+
+                        // remove componentes
+                        removeAnottionDescricao(listPanels, btnDescricao);
+
+                        // adiciona os paines principas add, list, exit
+                        addComponents(buttonsUI);
+
+                        // pega o nome da anotação e adiciona na lista
+                        listName(anottions.getName());
+
+                        // cria o segundo Layout
+                        newUITwoLayout();
+                    }
+                });
             }
         });
     }
@@ -197,4 +236,55 @@ public class components {
         }
     }
 
+    private void anottionFileDescricao(){
+        painel.add(panelDescricao);
+        painel.add(btnPanelDescricao);
+
+        mainMenu.add(painel);
+    }
+
+    private void removeAnottionDescricao(JPanel[] paines, JButton button){
+        for(JPanel s: paines){
+            s.setVisible(false);
+        }
+
+        button.setVisible(false);
+    }
+
+    private void addComponents(JPanel[] paines){
+        for(JPanel j: paines){
+            j.setVisible(true);
+        }
+    }
+
+    private void newUITwoLayout(){
+        newUI();
+    }
+
+    private void listAnnotions(){
+        lista.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event){
+                // lista de paines
+                JPanel[] list = {panelAdd, panelList, exitPanel};
+
+                // remove painel
+                for(JPanel l: list){
+                    l.setVisible(false);
+                }
+
+                // adiciona a lista
+                listar.adicionar(listName);
+                // lista as anotações
+                listar.listar(listName);
+
+                //metodo: panel
+                listar.panel(btnList, painel, mainMenu);
+            }
+        });
+    }
+
+    private void listName(String name){
+        listName = name;
+    }
 }

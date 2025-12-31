@@ -5,12 +5,14 @@ import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class panelDescricao extends JPanel {
-    public panelDescricao(){
+    public panelDescricao(JTextArea text){
         setVisible(true);
         setPreferredSize(new Dimension(400, 500));
         setLayout(new FlowLayout(FlowLayout.CENTER));
         add(new JLabel("Descrição"));
+        add(text);
     }
 }

@@ -17,7 +17,7 @@ public class lista extends JButton{
         setFont(FONT);
         setBackground(BG);
         setForeground(FC);
-        setText("Ver Anotações");
+        setText("Lista");
         setPreferredSize(new Dimension(120, 40));
     }
 }
